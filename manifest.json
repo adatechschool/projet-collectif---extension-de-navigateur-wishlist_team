@@ -14,7 +14,7 @@
           "js": ["script.js"]
         }
       ],
-      "permissions":["tabs"],
+      "permissions":["tabs","storage"],
       "action": {
         "default_popup": "index.html"
       }
