@@ -28,6 +28,7 @@ function getWebsite() {
           console.log("collection ", collection);
         });
     
+
       }); // ferme local storage
     }); // ferme query
   }); // ferme add event listener
@@ -52,4 +53,5 @@ function displayList() {
       document.getElementById("collection").appendChild(newItem);
     }
   });
+
 }
