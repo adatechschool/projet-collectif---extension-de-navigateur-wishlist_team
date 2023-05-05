@@ -12,7 +12,7 @@ function getWebsite() {
     chrome.tabs.query({ active: true, currentWindow: true }, (tabs) => {
       site = tabs[0].url;
       console.log("site1 ", site);
-      document.getElementById("url").innerText = site;
+      document.getElementById("saved").innerText = "Saved !";
 
       // afficher comment et website pour après les afficher sur ma_liste
       const comment = document.getElementById("comment").value;
@@ -52,9 +52,10 @@ function displayList() {
       for (let i = 0; i < result.tabCollection.length; i++) {
         const newItem = document.createElement("ul");
         const newComment = document.createElement("li");
+        newComment.setAttribute('id','item_comment')
         const newURL = document.createElement("li");
         newComment.innerText = result.tabCollection[i].comm;
-        newURL.innerHTML += `<a href="${result.tabCollection[i].link}">Lien vers l'article</a>`;
+        newURL.innerHTML += `<a target="_blank" href="${result.tabCollection[i].link}">Lien vers l'article</a>`;
         newItem.appendChild(newComment);
         newItem.appendChild(newURL);
         document.getElementById("collection").appendChild(newItem);

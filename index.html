@@ -9,13 +9,23 @@
     <title>Document</title>
 </head>
 <body>
-    <p class = "test">Maylis Test</p>
-    <p class = "test">Hello World</p>
-    <div id="url"></div>
-    <input type="text" id="comment" name="comment" required>
-    <button id="save">Save</button>
+   
+    <div class="titre">My wishlist</div>
     
-    <button id="ma_liste"><a target="_blank" href="ma_liste.html">Voir ma liste</a></button>
+    <div id="trigger">
+       <p>Love it ?<br> Add it to your wishlist ! </p>
+    </div>
+    
+    <div id="comment_block">
+        <p>Write your comment for this article : </p>
+        <input type="text" id="comment" name="comment" required>
+        <button id="save">Save</button>
+        <div id="saved">
+        </div>
+    </div>
+    
+    <a target="_blank" href="ma_liste.html"><button id="ma_liste">See collection</button></a>
+
     <script src="script.js"></script>
   </body>
 </html>
