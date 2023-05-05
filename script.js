@@ -62,7 +62,7 @@ chrome.storage.local.get(["tabCollection"]).then((result) => {
         newItem.appendChild(newComment)
         newItem.appendChild(newURL)
         document.getElementById('collection').appendChild(newItem)
-    }
+    } 
 
 });
 
