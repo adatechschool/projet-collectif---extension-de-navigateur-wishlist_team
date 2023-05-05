@@ -27,9 +27,7 @@ function getWebsite() {
           console.log("url is " + site);
           console.log("collection ", collection);
         });
-        // chrome.storage.local.set([{comm : comment, link: site}]).then(() => {
-        //     console.log("commentaire : ",comment);
-        //     console.log("url is " + site)
+    
       }); // ferme local storage
     }); // ferme query
   }); // ferme add event listener
