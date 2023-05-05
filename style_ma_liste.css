@@ -1,0 +1,33 @@
+@import url('https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300;0,400;0,500;0,600;0,900;1,300&display=swap');
+
+body{
+    background-color: #FDE3EF;
+    font-family: 'Rubik', sans-serif;
+    margin : 15px 25px
+}
+
+h1{
+    font-size: 30px;
+    font-weight: 500;
+    color: #3B002C;
+    
+}
+
+ul{
+    border:#3B002C solid 1px;
+    padding : 5px;
+    list-style-type:none;
+}
+
+li{ 
+    color: #3B002C;
+}
+
+#item_comment{
+    font-size: 17px;
+}
+
+li a {
+    color: #3B002C;
+}
+
