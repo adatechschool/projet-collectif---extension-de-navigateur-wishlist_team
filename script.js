@@ -19,7 +19,11 @@ function getWebsite() {
 
       chrome.storage.local.get(["tabCollection"]).then((result) => {
         let newItem = { comm: comment, link: site };
+
         let collection = result.tabCollection;
+        if (collection == null) {
+          collection = [];
+        }
         console.log("get", collection);
         collection.push(newItem);
         chrome.storage.local.set({ tabCollection: collection }).then(() => {
@@ -27,7 +31,6 @@ function getWebsite() {
           console.log("url is " + site);
           console.log("collection ", collection);
         });
-    
       }); // ferme local storage
     }); // ferme query
   }); // ferme add event listener
@@ -41,15 +44,21 @@ function displayList() {
   chrome.storage.local.get(["tabCollection"]).then((result) => {
     console.log("result", result);
 
-    for (let i = 0; i < result.tabCollection.length; i++) {
-      const newItem = document.createElement("ul");
-      const newComment = document.createElement("li");
-      const newURL = document.createElement("li");
-      newComment.innerText = result.tabCollection[i].comm;
-      newURL.innerHTML += `<a href="${result.tabCollection[i].link}">Lien vers l'article</a>`;
-      newItem.appendChild(newComment);
-      newItem.appendChild(newURL);
-      document.getElementById("collection").appendChild(newItem);
+    if (result.tabCollection == null) {
+      const empty = document.createElement("p");
+      empty.innerText = "Votre liste est vide";
+      document.getElementById("collection").appendChild(empty);
+    } else {
+      for (let i = 0; i < result.tabCollection.length; i++) {
+        const newItem = document.createElement("ul");
+        const newComment = document.createElement("li");
+        const newURL = document.createElement("li");
+        newComment.innerText = result.tabCollection[i].comm;
+        newURL.innerHTML += `<a href="${result.tabCollection[i].link}">Lien vers l'article</a>`;
+        newItem.appendChild(newComment);
+        newItem.appendChild(newURL);
+        document.getElementById("collection").appendChild(newItem);
+      }
     }
   });
 }
