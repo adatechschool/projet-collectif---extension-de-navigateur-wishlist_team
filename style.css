@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300;0,400;0,500;0,600;0,900;1,300&display=swap');
 
 body {
-    background-color: #FDE3EF;
+    background-color: #fff4f9;
     font-family: 'Rubik', sans-serif;
     padding : 5px;
     border-radius: 12px;
@@ -24,6 +24,14 @@ body {
     line-height: 20px;
     font-weight: 400;
     font-size: 15px;
+}
+
+#comment_block {
+    background-color: #FDE3EF;
+    border: #e1cedc solid 1px;
+    border-radius: 4px;
+    padding: 8px;
+    box-shadow: rgba(128, 127, 127, 0.2) 0px 2px 8px 0px;
 }
 
 #comment_block p {
@@ -52,8 +60,9 @@ input:focus{
     padding : 10px
 }
 
-#save{
-    margin-left: 5px;
+.btn_save{
+    display: flex;
+    justify-content: center;
 }
 
 #ma_liste >a{
@@ -62,8 +71,25 @@ input:focus{
 }
 
 #ma_liste{
-    background-color: #FDE3EF;
+    background-color: #fff4f9;
     border : solid 1px #3B002C;
-    color:#3B002C
+    color:#3B002C;
+    margin-top: 15px;
+}
+
+.see_coll{
+    display: flex;
+    justify-content: center;
+}
+
+#comment{
+    max-height: 10px;
+    color : #71676e;
+    font-size: 12px;
+}
+
+#comment::placeholder{
+    color : #bbbbbb;
+    font-size: 12px;
 }
 

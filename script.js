@@ -16,9 +16,10 @@ function getWebsite() {
 
       // afficher comment et website pour après les afficher sur ma_liste
       const comment = document.getElementById("comment").value;
+      const title_item=document.getElementById('title_item').value;
 
       chrome.storage.local.get(["tabCollection"]).then((result) => {
-        let newItem = { comm: comment, link: site };
+        let newItem = { title:title_item, comm: comment, link: site };
         let collection = result.tabCollection;
         if (collection == null) {
           collection = [];
@@ -37,15 +38,16 @@ function getWebsite() {
 }
 getWebsite();
 
+
 function displayList() {
   // afficher dans l'onglet ma liste le commentaire et l'url de l'article
 
   chrome.storage.local.get(["tabCollection"]).then((result) => {
     console.log("result", result);
 
-    if (result.tabCollection == null) {
+    if (result.tabCollection == 0) {
       const empty = document.createElement("p");
-      empty.innerText = "Votre liste est vide";
+      empty.innerText = "Your wishlist is empty 😥";
       document.getElementById("collection").appendChild(empty);
     } 
     else {
@@ -53,18 +55,23 @@ function displayList() {
         const newItem = document.createElement("ul");
         const newComment = document.createElement("li");
         const newDeleteButton = document.createElement("button");
-        newItem.setAttribute('id', `ul_number${i}`);
-        newDeleteButton.setAttribute('id', `delete_button${i}`);
-        newComment.setAttribute('id','item_comment');
+        const newTitle = document.createElement("h3")
         const newURL = document.createElement("li");
+        newItem.setAttribute('id', `ul_number${i}`);
+        newDeleteButton.setAttribute('id', `delete_button ${i}`);
+        newComment.setAttribute('id','item_comment');
+        newTitle.setAttribute('id','title_item')
+        
         newComment.innerText = result.tabCollection[i].comm;
         newURL.innerHTML += `<a target="_blank" href="${result.tabCollection[i].link}">Lien vers l'article</a>`;
         newDeleteButton.innerHTML += `<img src="images/bin.png" alt="delete_icon" />`;
+        newTitle.innerText =result.tabCollection[i].title;
+        newItem.appendChild(newTitle)
         newItem.appendChild(newComment);
         newItem.appendChild(newURL);
         newItem.appendChild(newDeleteButton);
         document.getElementById("collection").appendChild(newItem);
-        document.getElementById(`delete_button${i}`).addEventListener("click", () => {
+        document.getElementById(`delete_button ${i}`).addEventListener("click", () => {
       
           //remove element de l'affichage
           document.getElementById(`ul_number${i}`).remove()
