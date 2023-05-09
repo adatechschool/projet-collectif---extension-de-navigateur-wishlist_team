@@ -5,7 +5,6 @@ function getWebsite() {
   // if current url = */ma_liste.html alors
   if ((document.url = "*/ma_liste.html")) {
     displayList();
-    //deleteItem();
   }
 
   document.getElementById("save").addEventListener("click", () => {
@@ -66,25 +65,28 @@ function displayList() {
         newItem.appendChild(newDeleteButton);
         document.getElementById("collection").appendChild(newItem);
         document.getElementById(`delete_button${i}`).addEventListener("click", () => {
-          //addeventlistener pour dire qu'on clique sur le bouton delete de telle ul
-          //if le bouton est cliqué, supprimer le ul à cet index du tableau tabCollection
-          //idem supprimer du local storage chrome
-          //document.getElementById(`'ul_number${i}'`).remove()
-          // chrome.storage.local.remove("tabCollection[i]")
-          // const ul = event.target.parentElement
+      
+          //remove element de l'affichage
           document.getElementById(`ul_number${i}`).remove()
           console.log("tabcollection",result.tabCollection[i])
-          //chrome.storage.local.remove(result.tabCollection[i])
-          // this.newItem.style.display = 'none';
-          alert("Ca a marché")
+
+          // remove element du tableau storage
+          let deletedItem=result.tabCollection.splice(i,1);
+          console.log(deletedItem)
+
+            // set nouveau resultat (avec élément supprimé)
+          chrome.storage.local.set({tabCollection:result.tabCollection}).then(() => {
+            console.log("resultat",result.tabCollection)
+            
+          });
           
         })
       }
     }
   });
-    
+  // récuperation nouveau tableau (avec élement supprimé)
+  chrome.storage.local.get(["tabCollection"]).then((result)=>{
+    console.log("newTab",result)
+  }); 
 }
 
-// function deleteItem () {
-    
-// }
