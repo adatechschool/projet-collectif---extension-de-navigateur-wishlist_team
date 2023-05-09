@@ -42,7 +42,7 @@ input:focus{
     outline: none;
 }
 
-button{
+#save, #ma_liste{
     font-family: 'Rubik', sans-serif;
     background-color: #3B002C;
     color: #FDE3EF;
