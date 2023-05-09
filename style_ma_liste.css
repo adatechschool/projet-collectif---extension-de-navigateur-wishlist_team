@@ -17,10 +17,14 @@ ul{
     border:#3B002C solid 1px;
     padding : 5px;
     list-style-type:none;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 }
 
 li{ 
     color: #3B002C;
+    align-self: flex-start;
 }
 
 #item_comment{
@@ -31,3 +35,13 @@ li a {
     color: #3B002C;
 }
 
+#delete_button img {
+    max-width: 20px;
+}
+
+#delete_button {
+    max-width: 30px;
+    display: flex;
+    justify-content: center;
+    align-self: flex-end;
+}
