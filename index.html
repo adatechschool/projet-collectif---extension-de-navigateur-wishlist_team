@@ -17,15 +17,20 @@
     </div>
     
     <div id="comment_block">
-        <p>Write your comment for this article : </p>
-        <input type="text" id="comment" name="comment" required>
+      <p>Name this article : * </p>
+      <input type="text" id="title_item" name="title_item" required placeholder="Title">
+      <p>Write your comment for this article : </p>
+      <input type="text" id="comment" name="comment"  placeholder="Comment">
+      <div class="btn_save">
         <button id="save">Save</button>
-        <div id="saved">
-        </div>
+      </div>
+      <div id="saved">
+      </div>
     </div>
     
-    <a target="_blank" href="ma_liste.html"><button id="ma_liste">See collection</button></a>
-
+    <div class="see_coll">
+      <a target="_blank" href="ma_liste.html"><button id="ma_liste">See collection</button></a>
+    </div>
     <script src="script.js"></script>
   </body>
 </html>
