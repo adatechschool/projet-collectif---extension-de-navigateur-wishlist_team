@@ -14,12 +14,13 @@ function getWebsite() {
       console.log("site1 ", site);
       document.getElementById("saved").innerText = "Saved !";
 
-      // afficher comment et website pour après les afficher sur ma_liste
+      // récupérer comment et website pour après les afficher sur ma_liste
       const comment = document.getElementById("comment").value;
       const title_item=document.getElementById('title_item').value;
+      const chosenCategory = document.getElementById('categories').value
 
       chrome.storage.local.get(["tabCollection"]).then((result) => {
-        let newItem = { title:title_item, comm: comment, link: site };
+        let newItem = { title:title_item, comm: comment, link: site, icon: chosenCategory};
         let collection = result.tabCollection;
         if (collection == null) {
           collection = [];
@@ -36,7 +37,7 @@ function getWebsite() {
   }); // ferme add event listener
   return site;
 }
-getWebsite();
+
 
 
 function displayList() {
@@ -57,34 +58,43 @@ function displayList() {
         const newDeleteButton = document.createElement("button");
         const newTitle = document.createElement("h3")
         const newURL = document.createElement("li");
+        const containerNewItem =document.createElement("div")
+
         newItem.setAttribute('id', `ul_number${i}`);
         newDeleteButton.setAttribute('id', `delete_button ${i}`);
         newComment.setAttribute('id','item_comment');
         newTitle.setAttribute('id','title_item')
-        
+        containerNewItem.setAttribute('id',`containerNewItem${i}`)
+
         newComment.innerText = result.tabCollection[i].comm;
         newURL.innerHTML += `<a target="_blank" id="item_url" href="${result.tabCollection[i].link}">Lien vers l'article</a>`;
         newDeleteButton.innerHTML += `<img src="images/bin.png" alt="delete_icon" />`;
         newTitle.innerText =result.tabCollection[i].title;
+        
+        const newIcon = document.createElement('div')
+        newIcon.setAttribute('id','icon_category')
+        newIcon.innerHTML +=`<img src="images/${result.tabCollection[i].icon}.png" alt="${result.tabCollection[i].icon}_icon"/>`
+
+        //Affichage du DOM
         newItem.appendChild(newTitle)
         newItem.appendChild(newComment);
         newItem.appendChild(newURL);
-        newItem.appendChild(newDeleteButton);
-        document.getElementById("collection").appendChild(newItem);
+        containerNewItem.appendChild(newIcon);
+        containerNewItem.appendChild(newItem);
+        containerNewItem.appendChild(newDeleteButton);
+        document.getElementById("collection").appendChild(containerNewItem);
+
+        //Gestion delete button
         document.getElementById(`delete_button ${i}`).addEventListener("click", () => {
-      
-          //remove element de l'affichage
-          document.getElementById(`ul_number${i}`).remove()
-          console.log("tabcollection",result.tabCollection[i])
-
-          // remove element du tableau storage
-          let deletedItem=result.tabCollection.splice(i,1);
-          console.log(deletedItem)
-
-            // set nouveau resultat (avec élément supprimé)
-          chrome.storage.local.set({tabCollection:result.tabCollection}).then(() => {
-            console.log("resultat",result.tabCollection)
-            
+        //remove element de l'affichage
+        document.getElementById(`containerNewItem${i}`).remove()
+        console.log("tabcollection",result.tabCollection[i])
+        // remove element du tableau storage
+        let deletedItem=result.tabCollection.splice(i,1);
+        console.log(deletedItem)
+        // set nouveau resultat (avec élément supprimé)
+        chrome.storage.local.set({tabCollection:result.tabCollection}).then(() => {
+          console.log("resultat",result.tabCollection)
           });
           
         })
@@ -97,3 +107,4 @@ function displayList() {
   }); 
 }
 
+getWebsite();
