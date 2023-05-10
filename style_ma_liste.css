@@ -1,24 +1,33 @@
 @import url('https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300;0,400;0,500;0,600;0,900;1,300&display=swap');
 
-body{
+#wishlist{
     background-color: #fff4f9;
     font-family: 'Rubik', sans-serif;
     margin : 15px 25px
 }
+#wishlist_container{
+    margin:auto;
+    margin-top: 60px;
+    width: 70%
+}
 
-h1{
-    font-size: 30px;
+#collection_container{
+    margin: 20px 20px
+}
+.titre{
+    font-size: 40px;
     font-weight: 500;
     color: #3B002C;
 }
 
-h3{
+#title_item{
     font-size: 20px;
+    margin-bottom: 0;
 }
-ul{
+[id^=ul_number]{
     border:#3B002C solid 1px;
     margin: 15px;
-    padding : 5px;
+    padding : 15px;
     list-style-type:none;
     display: flex;
     flex-direction: column;
@@ -29,16 +38,18 @@ ul{
     box-shadow: rgba(128, 127, 127, 0.2) 0px 2px 8px 0px;
 }
 
-li{ 
+#item_url,#item_comment{ 
     color: #3B002C;
     align-self: flex-start;
+    
 }
 
 #item_comment{
     font-size: 17px;
+    line-height: 50px;
 }
 
-li a {
+#item_url {
     color: #3B002C;
 }
 
@@ -46,12 +57,6 @@ li a {
     max-width: 20px;
 }
 
-/* #delete_button {
-    max-width: 30px;
-    display: flex;
-    justify-content: center;
-    align-self: flex-end;
-} */
 
 [id^=delete_button]{ /* id qui commence par ...*/
     max-width: 30px;

@@ -63,7 +63,7 @@ function displayList() {
         newTitle.setAttribute('id','title_item')
         
         newComment.innerText = result.tabCollection[i].comm;
-        newURL.innerHTML += `<a target="_blank" href="${result.tabCollection[i].link}">Lien vers l'article</a>`;
+        newURL.innerHTML += `<a target="_blank" id="item_url" href="${result.tabCollection[i].link}">Lien vers l'article</a>`;
         newDeleteButton.innerHTML += `<img src="images/bin.png" alt="delete_icon" />`;
         newTitle.innerText =result.tabCollection[i].title;
         newItem.appendChild(newTitle)
