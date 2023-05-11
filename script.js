@@ -48,6 +48,7 @@ function displayList() {
 
     if (result.tabCollection == 0) {
       const empty = document.createElement("p");
+      empty.setAttribute('id','empty')
       empty.innerText = "Your wishlist is empty 😥";
       document.getElementById("collection").appendChild(empty);
     } 
