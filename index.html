@@ -5,12 +5,64 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="icon" type="image/png" href="images/heart.png" />
-    
+    <link rel="stylesheet" href="style.css" />
     <title>Document</title>
-</head>
-<body>
-    <p>Maylis Test</p>
-    <p>Hello World</p>
+  </head>
+  <body id="wishlist_popup">
+    <h1 class="titre">My wishlist</h1>
+
+    <div id="trigger">
+      <p>
+        Love it ?<br />
+        Add it to your wishlist !
+      </p>
+    </div>
+
+    <div id="comment_block">
+      <p>Name this article : *</p>
+      <input
+        type="text"
+        id="title_item"
+        name="title_item"
+        required
+        placeholder="Title"
+      />
+      <div id="category">
+        
+          <label for="category">Select a category :</label>
+          <select name="categories" id="categories">
+            <option value="choose">Choose...</option>
+            <option value="book">Book</option>
+            <option value="clothes">Clothing</option>
+            <option value="sport">Sport</option>
+            <option value="activity">Activity</option>
+            <option value="beauty">Beauty</option>
+            <option value="shoes">Shoes</option>
+            <option value="jewel">Jewellery</option>
+            <option value="craft">Craft</option>
+            <option value="home">Home</option>
+            <option value="tech">Tech</option>
+            <option value="other">Other</option>
+          </select>
+        
+      </div>
+      <p>Write your comment for this article :</p>
+      <input type="text" id="comment" name="comment" placeholder="Comment" />
+
+      <div class="btn_save">
+        <button id="save">Save</button>
+      </div>
+      <div id="saved"></div>
+      <div id="mention">
+        <p>*Required field</p>
+      </div>
+    </div>
+
+    <div class="see_coll">
+      <a target="_blank" href="ma_liste.html"
+        ><button id="ma_liste">See collection</button></a
+      >
+    </div>
     <script src="script.js"></script>
   </body>
 </html>

@@ -1,0 +1,89 @@
+@import url('https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300;0,400;0,500;0,600;0,900;1,300&display=swap');
+
+#wishlist{
+    background-color: #fff4f9;
+    font-family: 'Rubik', sans-serif;
+    margin : 15px 25px
+}
+#wishlist_container{
+    margin:auto;
+    margin-top: 60px;
+    width: 70%
+}
+
+#collection_container{
+    margin: 20px 20px
+}
+
+[id^=containerNewItem] {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+    margin: 15px;
+    padding : 15px;
+    background-color: #FDE3EF;
+    border: #e1cedc solid 1px;
+    border-radius: 4px;
+    box-shadow: rgba(128, 127, 127, 0.2) 0px 2px 8px 0px;
+}
+
+.titre{
+    font-size: 40px;
+    font-weight: 500;
+    color: #3B002C;
+}
+
+#title_item{
+    font-size: 20px;
+    margin-bottom: 0;
+    margin-top: 0;
+}
+[id^=ul_number]{
+    list-style-type:none;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 60%;
+}
+
+#item_url,#item_comment{ 
+    color: #3B002C;
+    align-self: flex-start;
+}
+
+#item_comment{
+    font-size: 17px;
+    line-height: 50px;
+    
+}
+
+#item_url {
+    color: #3B002C;
+}
+
+[id^=delete_button] img {
+    max-width: 20px;
+}
+
+
+[id^=delete_button]{ /* id qui commence par ...*/
+    max-width: 30px;
+    display: flex;
+    justify-content: center;
+    align-self: flex-end;
+    cursor: pointer;
+    background-color: #FDE3EF;
+    border-radius: 4px;
+    padding: 4px;
+    border : solid 1px #3B002C
+}
+
+#icon_category img{
+    width: 80px;
+}
+
+#empty{
+    font-size: 20px;
+    color :#3B002C;
+}
